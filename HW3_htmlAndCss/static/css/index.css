@@ -8,3 +8,22 @@ img{
 .small{
     font-size: 80px;
 }
+.bar {
+  background-color: aqua; 
+  padding: 60px 0;  
+}
+.bar a {
+  margin-right: 110px;
+  font-size: 110px;
+  text-decoration: none; 
+  color: black;
+  transition: 2s;       
+}
+.bar span{
+    margin-right: 110px;
+    font-size: 110px;
+    color: blue;
+}
+.bar a:hover {
+  color: red;            
+}
