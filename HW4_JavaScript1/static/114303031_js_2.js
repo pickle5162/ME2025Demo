@@ -2,19 +2,25 @@ document.write('<input type="text" id="number" name="number"></input><br>');
 let a=1;
 for (let i = 0; i <= 9; i++) {
     if (a%3!=0){
-        document.write("<button>" + i + "</button>");
+        document.write("<button onclick=\"input("+i+")\">"+i+"</button>");
     }
     if (a%3==0){
-        document.write("<button>" + i + "</button>");
+        document.write("<button onclick=\"input("+i+")\">"+i+"</button>");
         document.write("<br>");    
     }
     a++;
+}   
+document.write('<button onclick="clearDisplay()">clear</button><br>');  
+document.write("<button onclick=\"input('+')\">+</button>");
+document.write("<button onclick=\"input('-')\">-</button>");    
+document.write("<button onclick=\"input('*')\">*</button>");
+document.write("<button onclick=\"input('/')\">/</button>");
+document.write("<button onclick=\"input('(')\">(</button>");
+document.write("<button onclick=\"input(')')\">)</button>");
+document.write("<button onclick=\"input('=')\">=</button>");
+function input(val) {
+    document.getElementById("number").value += val;
 }
-document.write("<button>clear</button><br>");
-document.write("<button>+</button>");
-document.write("<button>-</button>");
-document.write("<button>*</button>");
-document.write("<button>/</button>");
-document.write("<button>(</button>");
-document.write("<button>)</button>");
-document.write("<button>=</button>");
+function clearDisplay() {
+    document.getElementById("number").value = "";
+}
