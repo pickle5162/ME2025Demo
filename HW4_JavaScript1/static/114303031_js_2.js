@@ -10,17 +10,22 @@ for (let i = 0; i <= 9; i++) {
     }
     a++;
 }   
-document.write('<button onclick="clearDisplay()">clear</button><br>');  
+document.write("<button onclick=\"clearDisplay()\">clear</button><br>");  
 document.write("<button onclick=\"input('+')\">+</button>");
 document.write("<button onclick=\"input('-')\">-</button>");    
 document.write("<button onclick=\"input('*')\">*</button>");
 document.write("<button onclick=\"input('/')\">/</button>");
 document.write("<button onclick=\"input('(')\">(</button>");
 document.write("<button onclick=\"input(')')\">)</button>");
-document.write("<button onclick=\"input('=')\">=</button>");
+document.write("<button onclick=\"count('=')\">=</button>");
 function input(val) {
-    document.getElementById("number").value += val;
+    document.getElementById("number").value+=val;
 }
 function clearDisplay() {
-    document.getElementById("number").value = "";
+    document.getElementById("number").value="";
+}
+function count(){
+    document.getElementById("number").value=
+    eval(document.getElementById("number").value);
+    alert(document.getElementById("number").value);
 }

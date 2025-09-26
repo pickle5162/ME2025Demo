@@ -10,7 +10,7 @@ function checkguess(){
         alert("too small");
     }
     if(guessnum==answernum){
-        alert("You are right. Guess times="+counter)
+        alert("You are right. Guess times="+counter);
         counter=0;
         answernum = Math.floor(Math.random()*101);
     }
