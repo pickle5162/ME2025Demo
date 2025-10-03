@@ -1,5 +1,4 @@
 let counter=0;
-let timersum=0;
 let timer=0;
 let timerid=0;
 let timecounter=1;
@@ -33,11 +32,9 @@ function checkguess(){
         container.appendChild(newParagraph);
         clearInterval(timerid);
         newParagraph.textContent =timecounter+". 猜了"+counter+"次,耗時"+(timer/1000.0)+"秒";
-        
-        alert("You are right. Guess times="+counter);
-        timersum+=timer;
-        
+        alert("答對了,猜了"+counter+"次,花了"+(timer/1000.0)+"秒");
         counter=0;
+        timer=0;
         answernum = Math.floor(Math.random()*101);
         timecounter++;
     }
