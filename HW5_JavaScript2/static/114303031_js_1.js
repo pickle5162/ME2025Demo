@@ -31,7 +31,7 @@ function checkguess(){
         let newParagraph = document.createElement("p");
         container.appendChild(newParagraph);
         clearInterval(timerid);
-        newParagraph.textContent =timecounter+". 猜了"+counter+"次,耗時"+(timer/1000.0)+"秒";
+        newParagraph.textContent =timecounter+". 猜了"+counter+"次, 耗時"+(timer/1000.0)+"秒 "+ new Date().toLocaleTimeString("zh-TW", { hour12: true });;
         alert("答對了,猜了"+counter+"次,花了"+(timer/1000.0)+"秒");
         counter=0;
         timer=0;
