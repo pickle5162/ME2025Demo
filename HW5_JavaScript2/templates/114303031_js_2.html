@@ -6,6 +6,7 @@
 
     <body>
         <table>
+            <h3>購物車</h3>
             <tr>
                 <td><input type="checkbox" class="checkbox_all" id="checkbox_all"></td>
                 <td class="cell0">商品名稱</td>
@@ -17,26 +18,38 @@
             <tr>
                 <td><input type="checkbox" class="checkbox_item" id="checkbox_item"></td>
                 <td><img src="../static/img/photo1.jpg"><br><p>足球</p></td>
-                <td class="cell0">blank</td>
-                <td class="cell0">blank</td>
-                <td class="cell0">blank</td>
-                <td class="cell0">blank</td>
+                <td id="stock1"></td>
+                <td class="cell0">$500</td>
+
+                <td><div><button onclick="decrease('quantity1')">-</button>
+                <input type="number" id="quantity1" class="quantity" value="1">
+                <button onclick="increase('quantity1')">+</button></div></td>
+
+                <td id="cost1"></td>
             </tr>
             <tr>
                 <td><input type="checkbox" class="checkbox_item" id="checkbox_item"></td>
                 <td><img src="../static/img/photo2.jpg"><br><p>籃球</p></td>
-                <td class="cell0">blank</td>
-                <td class="cell0">blank</td>
-                <td class="cell0">blank</td>
-                <td class="cell0">blank</td>
+                <td id="stock2"></td>
+                <td class="cell0">$1000</td>
+
+                <td><div><button onclick="decrease('quantity2')">-</button>
+                <input type="number" id="quantity2" class="quantity" value="1">
+                <button onclick="increase('quantity2')">+</button></div></td>
+
+                <td id="cost2"></td>
             </tr>
             <tr>
                 <td><input type="checkbox" class="checkbox_item" id="checkbox_item"></td>
                 <td><img src="../static/img/photo3.jpg"><br><p>排球</p></td>
-                <td class="cell0">blank</td>
-                <td class="cell0">blank</td>
-                <td class="cell0">blank</td>
-                <td class="cell0">blank</td>
+                <td id="stock3"></td>
+                <td class="cell0">$2000</td>
+
+                <td><div><button onclick="decrease('quantity3')">-</button>
+                <input type="number" id="quantity3" class="quantity" value="1">
+                <button onclick="increase('quantity3')">+</button></div></td>
+
+                <td id="cost3"></td>
             </tr>
         </table>
         <script src="../static/114303031_js_2.js"></script>

@@ -18,6 +18,31 @@ img {
     height: 30px;
 }
 .checkbox_all{
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
+}
+td div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input[type="number"] {
+    width: 50px;
+}
+button {
+    width: 30px;
+    height: 21px;
+}
+.quantity {
+  text-align: center;
+  vertical-align: middle;
+  width: 50px;
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
