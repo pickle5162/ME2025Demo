@@ -1,16 +1,23 @@
 table, th, td {
     border: 1px solid black;
 }
+td {
+  text-align: center;
+  vertical-align: middle;
+}
 img {
     width: 120px;
     height: 120px;
 }
-p {
-    text-align: center;
-}
 .cell0{
     width: 100px;
+    height: 40px;
+}
+.checkbox_item{
+    width: 30px;
     height: 30px;
-    vertical-align: middle;
-    text-align: center;
+}
+.checkbox_all{
+  width: 20px;
+  height: 20px;
 }
