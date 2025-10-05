@@ -34,18 +34,27 @@ button {
     height: 21px;
 }
 .quantity {
-  text-align: center;
-  vertical-align: middle;
-  width: 50px;
-  -moz-appearance: textfield;
-  -webkit-appearance: none;
-  appearance: textfield;
+    text-align: center;
+    vertical-align: middle;
+    width: 50px;
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    appearance: textfield;
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 .total{
     height: 30px;
+}
+.buy{
+    width: 109px;
+    height: 30px;
+    margin-left: 500px;
+    font-size: 15px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 }

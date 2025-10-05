@@ -16,7 +16,7 @@
                 <td class="cell0">總計</td>
             </tr>
             <tr>
-                <td><input type="checkbox" class="checkbox_item" data-price="500"></td>
+                <td><input type="checkbox" class="checkbox_item" id="checkbox1" data-price="500"></td>
                 <td><img src="../static/img/photo1.jpg"><br><p>足球</p></td>
                 <td id="stock1"></td>
                 <td class="cell0">500</td>
@@ -28,7 +28,7 @@
                 <td id="cost1"></td>
             </tr>
             <tr>
-                <td><input type="checkbox" class="checkbox_item" data-price="1000"></td>
+                <td><input type="checkbox" class="checkbox_item" id="checkbox2" data-price="1000"></td>
                 <td><img src="../static/img/photo2.jpg"><br><p>籃球</p></td>
                 <td id="stock2"></td>
                 <td class="cell0">1000</td>
@@ -40,7 +40,7 @@
                 <td id="cost2"></td>
             </tr>
             <tr>
-                <td><input type="checkbox" class="checkbox_item" data-price="2000"></td>
+                <td><input type="checkbox" class="checkbox_item" id="checkbox3" data-price="2000"></td>
                 <td><img src="../static/img/photo3.jpg"><br><p>排球</p></td>
                 <td id="stock3"></td>
                 <td class="cell0">2000</td>
@@ -54,8 +54,9 @@
             <tr>
                 <td colspan="5" class="total">total</td>
                 <td id="total" class="total"></td>
-            </tr>
+            </tr>   
         </table>
+        <button onclick="buy()" class="buy">結帳</button>
         <script src="../static/114303031_js_2.js"></script>
     </body>
 </html>
