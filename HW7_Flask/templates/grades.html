@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>成績系統</title>
+</head>
+    <body>
+        <h1>成績輸入系統</h1>
+        <h2>教師: {{ teacher_name }}</h2>
+        <h3>目前成績表</h3>
+        <table border="1">
+            <tr>
+                <th>姓名</th>
+                <th>學號</th>
+                <th>成績</th>
+            </tr>
+            {% for student in grades %}
+            <tr>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>新增學生</h3>
+        <form method="POST" action="/add_grade">
+            <input type="hidden" name="teacher_name" value="{{ teacher_name }}">
+            姓名: <input type="text" name="student_name"><br><br>
+            學號: <input type="text" name="student_id"><br><br>
+            成績: <input type="number" name="grade"><br><br>
+        <button type="submit">新增</button>
+        </form>
+
+        <h3>刪除學生</h3>
+        <form method="POST" action="/delete_grade">
+            <input type="hidden" name="teacher_name" value="{{ teacher_name }}">
+            學號: <input type="text" name="student_id" required><br><br>
+            <button type="submit">刪除</button>
+        </form>
+    </body>
+</html>
