@@ -193,9 +193,7 @@ function apply_filter(products_to_filter) {
         // 勾選 → 數量至少 1
         if (st.qty === 0) st.qty = 1;
         qtyInput.value = st.qty;
-        if(st.qty==1)
-          decBtn.disabled = true;
-        else
+        if(qtyInput.value!=1)
           decBtn.disabled = false;
         incBtn.disabled = false;
     } else {
@@ -295,7 +293,7 @@ function refreshSummary() {
   });
 
   const btnOrder = document.getElementById('place-order');
-  if (btnOrder) btnOrder.disabled = !(selectedCount > 0 && totalQty > 0);
+  if (btnOrder) btnOrder.disabled = selectedCount === 0;
 
   const summaryEl = document.getElementById('cart-summary');
   if (summaryEl) summaryEl.textContent =
