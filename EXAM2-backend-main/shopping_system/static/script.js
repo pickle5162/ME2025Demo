@@ -197,7 +197,10 @@ if (e.target.classList.contains('row-check')) {
         // 勾選 → 數量至少 1
         if (st.qty === 0) st.qty = 1;
         qtyInput.value = st.qty;
-        decBtn.disabled = true;      // 數量 1 時 - 按鍵不可按
+          if(st.qty===1)
+            decBtn.disabled = true;
+          else 
+            decBtn.disabled = false;     // 數量 1 時 - 按鍵不可按
         incBtn.disabled = false;
     } else {
         // 取消勾選 → 數量歸 0

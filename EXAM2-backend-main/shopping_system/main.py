@@ -27,12 +27,38 @@ def index():
 def page_register():
     if request.method == 'POST':
         data = request.get_json()
+        username = data.get('username', '').strip()
+        password = data.get('password', '').strip()
+        email = data.get('email', '').strip()
         #補齊空缺程式碼
-        if ...:
-            return jsonify({"status": "error", "message": "此名稱已被使用"})
+        if len(password) < 8 or not re.search(r'(?=.*[a-z])(?=.*[A-Z])', password):
+            return jsonify({"status": "error", "message": "密碼必須超過8個字元且包含英文大小寫，重新輸入”"})
+        if not re.match(r"^[@gmail\.com$", email):
+            return jsonify({"status": "error", "message": "Email 格式不符，重新輸入"})
+        
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM user_data WHERE username=?", (username,))
+        existing = cursor.fetchone()
+        if existing:
+            cursor.execute(
+                "UPDATE user_data SET password=?, email=? WHERE username=?",
+                (password, email, username)
+            )
+            conn.commit()
+            conn.close()
+            return jsonify({"status": "error", "message": "帳號已存在，成功修改密碼或信箱"})
 
-        if len(password) < 8:
-       ...:
+        # 帳號不存在 → 新增
+        cursor.execute(
+            "INSERT INTO user_data (username, password, email) VALUES (?, ?, ?)",
+            (username, password, email)
+        )
+        conn.commit()
+        conn.close()
+
+        return jsonify({"status": "success", "message": "註冊成功"})
+    
        
     return render_template('page_register.html')
 
