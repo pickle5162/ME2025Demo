@@ -16,13 +16,15 @@ def get_db_connection():
         return None
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
-    return conn
 
-# 補齊空缺程式碼
+
 @app.route('/')
 def index():
     return render_template('index.html')
-    
+
+
+
+
 @app.route('/page_register', methods=['GET', 'POST'])
 def page_register():
     if request.method == 'POST':
@@ -30,7 +32,6 @@ def page_register():
         username = data.get('username', '').strip()
         password = data.get('password', '').strip()
         email = data.get('email', '').strip()
-        #補齊空缺程式碼
         if len(password) < 8 or not re.search(r'(?=.*[a-z])(?=.*[A-Z])', password):
             return jsonify({"status": "error", "message": "密碼必須超過8個字元且包含英文大小寫，重新輸入”"})
         if not re.match(r"^[@gmail\.com$", email):
@@ -56,9 +57,6 @@ def page_register():
         )
         conn.commit()
         conn.close()
-
-        return jsonify({"status": "success", "message": "註冊成功"})
-    
        
     return render_template('page_register.html')
 
