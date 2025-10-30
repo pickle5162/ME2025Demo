@@ -15,6 +15,20 @@ const products = [
 
 (function showUsername() {
 // === 顯示登入使用者於導行列，補齊程式碼 ===
+const usernameDisplay = document.querySelector('#username-display');
+    const username = localStorage.getItem('username') || '訪客';
+    if (usernameDisplay) {
+        usernameDisplay.textContent = username;
+    }
+
+    const logoutLink = document.getElementById('logout-link');
+    if (logoutLink) {
+        logoutLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('username'); // 清除前端
+            window.location.href = '/page_login'; // 導回登入頁
+        });
+    }
 })();
 
 
@@ -89,9 +103,9 @@ function display_products(products_to_display) {
         <td>${p.category}</td>
         <td>
           <div class="qty" style="display:inline-flex;align-items:center;gap:6px;">
-            <button type="button" class="btn-dec" style="padding:2px 8px;">-</button>
-            <input type="number" class="qty-input" min="0" value="${state.qty}" style="width:64px;">
-            <button type="button" class="btn-inc" style="padding:2px 8px;">+</button>
+          <button type="button" class="btn-dec" style="padding:2px 8px;" ${state.qty === 0 ? 'disabled' : ''}>-</button>
+          <input type="number" class="qty-input" min="0" value="${state.qty}" style="width:64px;">
+          <button type="button" class="btn-inc" style="padding:2px 8px;" ${state.qty === 0 ? 'disabled' : ''}>+</button>
           </div>
         </td>
         <td class="row-total">${total.toLocaleString()}</td>
@@ -169,11 +183,35 @@ function apply_filter(products_to_filter) {
 
     // 列 checkbox
     if (e.target.classList.contains('row-check')) {
-      st.checked = e.target.checked;
-      rowState.set(key, st);
-      refreshSummary();
-      return;
+    const chk = e.target;
+    const tr = chk.closest('tr');
+    const qtyInput = tr.querySelector('.qty-input');
+    const decBtn = tr.querySelector('.btn-dec');
+    const incBtn = tr.querySelector('.btn-inc');
+
+    if (chk.checked) {
+        // 勾選 → 數量至少 1
+        if (st.qty === 0) st.qty = 1;
+        qtyInput.value = st.qty;
+        if(st.qty==1)
+          decBtn.disabled = true;
+        else
+          decBtn.disabled = false;
+        incBtn.disabled = false;
+    } else {
+        // 取消勾選 → 數量歸 0
+        st.qty = 0;
+        qtyInput.value = 0;
+        decBtn.disabled = true;
+        incBtn.disabled = true;
     }
+
+    st.checked = chk.checked;
+    rowState.set(key, st);
+    updateRowTotal(tr);
+    refreshSummary();
+    return;
+}
 
     // 減少數量
     if (e.target.classList.contains('btn-dec')) {
